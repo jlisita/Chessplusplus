@@ -13,6 +13,9 @@ public:
 
 	void print(std::ostream &flux) const;
 
+	bool canMove(int xi, int yi, int xf, int yf) const;
+
+
 };
 
 #endif

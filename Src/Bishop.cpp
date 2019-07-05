@@ -23,4 +23,13 @@ void Bishop::print(std::ostream &flux) const
 	}
 }
 
+bool Bishop::canMove(int i, int j, int k, int l) const
+{
+	if( (k-i==l-j) || (k-i==j-l) )
+	{
+		return true;
+	}
+	return false;
+}
+
 

@@ -23,4 +23,13 @@ void Rook::print(std::ostream &flux) const
 	}
 }
 
+bool Rook::canMove(int i, int j, int k, int l) const
+{
+	if( (k-i==0) || (l-j==0) )
+	{
+		return true;
+	}
+	return false;
+}
+
 

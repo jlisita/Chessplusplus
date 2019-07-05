@@ -23,4 +23,13 @@ void Queen::print(std::ostream &flux) const
 	}
 }
 
+bool Queen::canMove(int i, int j, int k, int l) const
+{
+	if( (k-i==l-j) || (k-i==j-l) || (k-i==0) || (l-j==0) )
+	{
+		return true;
+	}
+	return false;
+}
+
 

@@ -8,9 +8,17 @@
 class Board
 {
 
+public:
+
+	Board();
+
+	~Board();
+
+
+
 private:
 
-Piece* m_board[8][8];
+	Piece* m_board[8][8];
 
 };
 

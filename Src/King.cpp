@@ -23,4 +23,15 @@ void King::print(std::ostream &flux) const
 	}
 }
 
+bool King::canMove(int i, int j, int k, int l) const
+{
+	if( ( (k-i==1) &&  ( (j==l) || (l-j==1) || (l-j==-1) ) )
+	||  ( (k-i==-1) && ( (j==l) || (l-j==1) || (l-j==-1) ) )
+	||  ( (k-i==0) && ( (l-j==1) || (l-j==-1) ) ) )
+	{
+		return true;
+	}
+	return false;
+}
+
 
