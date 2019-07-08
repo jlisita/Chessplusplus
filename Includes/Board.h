@@ -14,6 +14,10 @@ public:
 
 	~Board();
 
+	Piece* getPiece(int i, int j) const;
+
+	void print(Color player) const;
+
 
 
 private:
