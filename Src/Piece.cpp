@@ -1,9 +1,10 @@
 #include <iostream>
 #include "Piece.h"
+#include "Board.h"
 
 using namespace std;
 
-Piece::Piece(Color color) : m_color(color)
+Piece::Piece(Color color) : m_color(color), m_firstMove(false)
 {
 }
 

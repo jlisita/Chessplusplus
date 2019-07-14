@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Queen.h"
+#include "Board.h"
 
 using namespace std;
 
@@ -23,7 +24,7 @@ void Queen::print(std::ostream &flux) const
 	}
 }
 
-bool Queen::canMove(int i, int j, int k, int l) const
+bool Queen::canMove(int i, int j, int k, int l, Board* board) const
 {
 	if( (k-i==l-j) || (k-i==j-l) || (k-i==0) || (l-j==0) )
 	{

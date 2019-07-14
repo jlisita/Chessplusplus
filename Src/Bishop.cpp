@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Bishop.h"
+#include "Board.h"
 
 using namespace std;
 
@@ -23,7 +24,7 @@ void Bishop::print(std::ostream &flux) const
 	}
 }
 
-bool Bishop::canMove(int i, int j, int k, int l) const
+bool Bishop::canMove(int i, int j, int k, int l, Board* board) const
 {
 	if( (k-i==l-j) || (k-i==j-l) )
 	{

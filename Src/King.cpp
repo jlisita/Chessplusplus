@@ -1,5 +1,6 @@
 #include <iostream>
 #include "King.h"
+#include "Board.h"
 
 using namespace std;
 
@@ -23,7 +24,7 @@ void King::print(std::ostream &flux) const
 	}
 }
 
-bool King::canMove(int i, int j, int k, int l) const
+bool King::canMove(int i, int j, int k, int l, Board* board) const
 {
 	if( ( (k-i==1) &&  ( (j==l) || (l-j==1) || (l-j==-1) ) )
 	||  ( (k-i==-1) && ( (j==l) || (l-j==1) || (l-j==-1) ) )

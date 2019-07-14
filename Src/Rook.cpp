@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Rook.h"
+#include "Board.h"
 
 using namespace std;
 
@@ -23,7 +24,7 @@ void Rook::print(std::ostream &flux) const
 	}
 }
 
-bool Rook::canMove(int i, int j, int k, int l) const
+bool Rook::canMove(int i, int j, int k, int l, Board* board) const
 {
 	if( (k-i==0) || (l-j==0) )
 	{

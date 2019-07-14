@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Knight.h"
+#include "Board.h"
 
 using namespace std;
 
@@ -23,7 +24,7 @@ void Knight::print(std::ostream &flux) const
 	}
 }
 
-bool Knight::canMove(int i, int j, int k, int l) const
+bool Knight::canMove(int i, int j, int k, int l, Board* board) const
 {
 	if  ( ( (k-i==2) && ( (l-j==1) || (l-j==-1) ) ) || ( (k-i==-2) && ( (l-j==1) || (l-j==-1) ) )
      || ( (k-i==1) && ( (l-j==2) || (l-j==-2) ) ) || ( (k-i==-1) && ( (l-j==2) || (l-j==-2) ) ) )
