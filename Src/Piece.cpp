@@ -17,6 +17,18 @@ Color Piece::getColor() const
 	return m_color;
 }
 
+
+bool Piece::getFirstMove() const
+{
+	return m_firstMove;
+}
+
+void Piece::setFirstMove()
+{
+	m_firstMove = true;
+}
+
+
 ostream& operator<<( ostream &flux, Piece const& piece)
 {
 	piece.print(flux);

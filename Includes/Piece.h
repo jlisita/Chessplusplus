@@ -19,6 +19,10 @@ public:
 
 	Color getColor() const;
 
+	bool getFirstMove() const;
+
+	void setFirstMove();
+
 	virtual void print(std::ostream &flux) const = 0;
 
 	virtual bool canMove(int i, int j, int k, int l, Board* Board) const = 0;

@@ -30,8 +30,8 @@ bool Pawn::canMove(int i, int j, int k, int l, Board* board) const
 {
 	if(getColor() == WHITE)
 	{
-		if( ( (m_firstMove==true) && (j==l) && (k-i==2) )
-	    || ( (j==l) && (k-i == 1) )
+		if( ( (m_firstMove==true) && (j==l) && (k-i==2) && board->isEmpty(k,l) )
+	    || ( (j==l) && (k-i == 1) && board->isEmpty(k,l) )
 	    || ( (k==i+1) && ((l==j+1) || (l==j-1)) && !board->isEmpty(k,l)) )
 		{
 			return true;
@@ -39,8 +39,8 @@ bool Pawn::canMove(int i, int j, int k, int l, Board* board) const
 	}
 	else
 	{
-		if( ( (m_firstMove==true) && (j==l) && (k-i==-2) )
-		|| ( (j==l) && (k-i==-1) )
+		if( ( (m_firstMove==true) && (j==l) && (k-i==-2) && board->isEmpty(k,l) )
+		|| ( (j==l) && (k-i==-1) && board->isEmpty(k,l) && board->isEmpty(k,l) )
 		|| ( (k==i-1) && ((l==j-1) || (l==j+1)) && !board->isEmpty(k,l)) )
 		{
 			return true;
