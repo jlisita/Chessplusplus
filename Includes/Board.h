@@ -3,7 +3,7 @@
 
 #include <vector>
 
-#include "Piece.h"
+class Piece;
 
 enum Orientation
 {
@@ -19,6 +19,7 @@ public:
 
 	~Board();
 
+
 	Piece* getPiece(int i, int j) const;
 
 	void addPiece(Piece* p, int i, int j);
@@ -26,6 +27,8 @@ public:
 	bool isEmpty(int i,int j) const;
 
 	bool isEmptyBetween(int i, int j, int k, int l) const;
+
+	bool isValidPosition(int i, int j, int k, int l) const;
 
 	void print(Orientation o) const;
 

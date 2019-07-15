@@ -1,7 +1,7 @@
 #include <iostream>
 
 #include "Board.h"
-#include "Rook.h"
+#include "Piece.h"
 
 using namespace std;
 
@@ -140,6 +140,11 @@ using namespace std;
 			}
 		}
 		return 1;
+	}
+
+	bool Board::isValidPosition(int i, int j, int k, int l) const
+	{
+		return (i>=0 && i<8 && j>=0 && j<8 && k>=0 && k<8 && l>=0 && l<8);
 	}
 
 	void Board::print(Orientation o) const
