@@ -4,7 +4,7 @@
 
 using namespace std;
 
-Rook::Rook(Color color) : Piece(color)
+Rook::Rook(Color color, int row, int column) : Piece(color, row, column)
 {
 }
 
@@ -31,6 +31,11 @@ bool Rook::canMove(int i, int j, int k, int l, Board* board) const
 		return true;
 	}
 	return false;
+}
+
+string Rook::getName() const
+{
+	return "Rook";
 }
 
 

@@ -6,7 +6,7 @@ using namespace std;
 
 
 
-Pawn::Pawn(Color color) : Piece(color)
+Pawn::Pawn(Color color, int row, int column) : Piece(color, row, column)
 {
 }
 
@@ -47,6 +47,11 @@ bool Pawn::canMove(int i, int j, int k, int l, Board* board) const
 		}
 	}
 	return false;
+}
+
+string Pawn ::getName() const
+{
+	return "Queen";
 }
 
 

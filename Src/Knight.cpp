@@ -4,7 +4,7 @@
 
 using namespace std;
 
-Knight::Knight(Color color) : Piece(color)
+Knight::Knight(Color color, int row, int column) : Piece(color, row, column)
 {
 }
 
@@ -33,5 +33,11 @@ bool Knight::canMove(int i, int j, int k, int l, Board* board) const
      }
      return false;
 }
+
+string Knight::getName() const
+{
+	return "Knight";
+}
+
 
 

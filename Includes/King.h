@@ -7,7 +7,7 @@ class King : public Piece
 
 public:
 
-	King(Color color = WHITE);
+	King(Color color = WHITE, int row = 0, int column = 0);
 
 	~King();
 
@@ -15,7 +15,7 @@ public:
 
 	bool canMove(int i, int j, int k, int l, Board* baord) const;
 
-
+	std::string getName() const;
 };
 
 #endif

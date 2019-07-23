@@ -4,7 +4,7 @@
 
 using namespace std;
 
-Queen::Queen(Color color) : Piece(color)
+Queen::Queen(Color color, int row, int column) : Piece(color, row, column)
 {
 }
 
@@ -31,6 +31,11 @@ bool Queen::canMove(int i, int j, int k, int l, Board* board) const
 		return true;
 	}
 	return false;
+}
+
+string Queen::getName() const
+{
+	return "Queen";
 }
 
 

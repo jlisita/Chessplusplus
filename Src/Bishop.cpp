@@ -4,7 +4,7 @@
 
 using namespace std;
 
-Bishop::Bishop(Color color) : Piece(color)
+Bishop::Bishop(Color color, int row, int column) : Piece(color, row, column)
 {
 }
 
@@ -32,5 +32,11 @@ bool Bishop::canMove(int i, int j, int k, int l, Board* board) const
 	}
 	return false;
 }
+
+string Bishop::getName() const
+{
+	return "Bishop";
+}
+
 
 

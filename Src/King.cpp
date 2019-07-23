@@ -4,7 +4,7 @@
 
 using namespace std;
 
-King::King(Color color) : Piece(color)
+King::King(Color color, int row, int column) : Piece(color, row, column)
 {
 }
 
@@ -34,5 +34,11 @@ bool King::canMove(int i, int j, int k, int l, Board* board) const
 	}
 	return false;
 }
+
+string King::getName() const
+{
+	return "King";
+}
+
 
 
