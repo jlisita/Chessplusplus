@@ -2,7 +2,7 @@
 #define BOARD_H
 
 #include <vector>
-
+#include <map>
 class Piece;
 
 enum Orientation
@@ -23,6 +23,8 @@ public:
 	Piece* getPiece(int i, int j) const;
 
 	void addPiece(Piece* p, int i, int j);
+
+	void initBoard(std::map<std::string,Piece*>listPieces);
 
 	bool isEmpty(int i,int j) const;
 

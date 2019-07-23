@@ -1,4 +1,5 @@
 #include <iostream>
+#include <map>
 
 #include "Board.h"
 #include "Piece.h"
@@ -33,6 +34,14 @@ using namespace std;
 		if(m_board[i][j]==NULL && i<8 && j<8 )
 		{
 			m_board[i][j]=p;
+		}
+	}
+
+	void Board::initBoard(map<string,Piece*>listPieces)
+	{
+		for(map<string,Piece*>::iterator it=listPieces.begin();it!=listPieces.end();++it)
+		{
+			addPiece(it->second,it->second->getRow(),it->second->getColumn());
 		}
 	}
 
