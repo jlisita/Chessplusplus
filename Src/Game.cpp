@@ -5,8 +5,8 @@ using namespace std;
 
 	Game::Game(string player1, string player2)
 	{
-		m_player1 = new Player(player1);
-		m_player2 = new Player(player2);
+		m_player1 = new Player(player1,WHITE);
+		m_player2 = new Player(player2,BLACK);
 		m_board = new Board();
 	}
 
@@ -56,5 +56,5 @@ using namespace std;
 			return false;
 		}
 		return false;
-	}
+	 }
 

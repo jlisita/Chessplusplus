@@ -11,7 +11,7 @@ class Player
 
 public:
 
-	Player(std::string name);
+	Player(std::string name, Color color);
 	~Player();
 
 	std::string getName() const;
@@ -19,6 +19,8 @@ public:
 	void setColor(Color color);
 	std::map<std::string,Piece*> getListPieces() const;
 	std::map<std::string,Piece*> getCapturedPieces() const;
+	void initPieceList();
+	void updateCapturedList(Piece* p);
 	bool canTake(Piece* p) const;
 	bool canEat(Piece* p) const;
 	bool isChess() const;
