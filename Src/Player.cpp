@@ -58,41 +58,41 @@ void Player::initPieceList()
 {
 	if(m_color==WHITE)
 	{
-			m_listPieces.insert(std::pair<string,Piece*>("Pawn1",new Pawn(m_color,1,0)));
-			m_listPieces.insert(std::pair<string,Piece*>("Pawn2",new Pawn(m_color,1,1)));
-			m_listPieces.insert(std::pair<string,Piece*>("Pawn3",new Pawn(m_color,1,2)));
-			m_listPieces.insert(std::pair<string,Piece*>("Pawn4",new Pawn(m_color,1,3)));
-			m_listPieces.insert(std::pair<string,Piece*>("Pawn5",new Pawn(m_color,1,4)));
-			m_listPieces.insert(std::pair<string,Piece*>("Pawn6",new Pawn(m_color,1,5)));
-			m_listPieces.insert(std::pair<string,Piece*>("Pawn7",new Pawn(m_color,1,6)));
-			m_listPieces.insert(std::pair<string,Piece*>("Pawn8",new Pawn(m_color,1,7)));
-			m_listPieces.insert(std::pair<string,Piece*>("Rook1",new Rook(m_color,0,0)));
-			m_listPieces.insert(std::pair<string,Piece*>("Rook2",new Rook(m_color,0,7)));
-			m_listPieces.insert(std::pair<string,Piece*>("Knight1",new Knight(m_color,0,1)));
-			m_listPieces.insert(std::pair<string,Piece*>("Knight2",new Knight(m_color,0,6)));
-			m_listPieces.insert(std::pair<string,Piece*>("Bishop1",new Bishop(m_color,0,2)));
-			m_listPieces.insert(std::pair<string,Piece*>("Bishop2",new Bishop(m_color,0,5)));
-			m_listPieces.insert(std::pair<string,Piece*>("King",new King(m_color,0,3)));
-			m_listPieces.insert(std::pair<string,Piece*>("Queen",new Queen(m_color,0,4)));
+			m_listPieces.insert(std::pair<string,Piece*>("Pawn1",new Pawn(m_color,"Pawn1",1,0)));
+			m_listPieces.insert(std::pair<string,Piece*>("Pawn2",new Pawn(m_color,"Pawn2",1,1)));
+			m_listPieces.insert(std::pair<string,Piece*>("Pawn3",new Pawn(m_color,"Pawn3",1,2)));
+			m_listPieces.insert(std::pair<string,Piece*>("Pawn4",new Pawn(m_color,"Pawn4",1,3)));
+			m_listPieces.insert(std::pair<string,Piece*>("Pawn5",new Pawn(m_color,"Pawn5",1,4)));
+			m_listPieces.insert(std::pair<string,Piece*>("Pawn6",new Pawn(m_color,"Pawn6",1,5)));
+			m_listPieces.insert(std::pair<string,Piece*>("Pawn7",new Pawn(m_color,"Pawn7",1,6)));
+			m_listPieces.insert(std::pair<string,Piece*>("Pawn8",new Pawn(m_color,"Pawn8",1,7)));
+			m_listPieces.insert(std::pair<string,Piece*>("Rook1",new Rook(m_color,"Rook1",0,0)));
+			m_listPieces.insert(std::pair<string,Piece*>("Rook2",new Rook(m_color,"Rook2",0,7)));
+			m_listPieces.insert(std::pair<string,Piece*>("Knight1",new Knight(m_color,"Knight1",0,1)));
+			m_listPieces.insert(std::pair<string,Piece*>("Knight2",new Knight(m_color,"Knight2",0,6)));
+			m_listPieces.insert(std::pair<string,Piece*>("Bishop1",new Bishop(m_color,"Bishop1",0,2)));
+			m_listPieces.insert(std::pair<string,Piece*>("Bishop2",new Bishop(m_color,"Bishop2",0,5)));
+			m_listPieces.insert(std::pair<string,Piece*>("King",new King(m_color,"King",0,3)));
+			m_listPieces.insert(std::pair<string,Piece*>("Queen",new Queen(m_color,"Queen",0,4)));
 	}
 	else
 	{
-			m_listPieces.insert(std::pair<string,Piece*>("Pawn1",new Pawn(m_color,6,0)));
-			m_listPieces.insert(std::pair<string,Piece*>("Pawn2",new Pawn(m_color,6,1)));
-			m_listPieces.insert(std::pair<string,Piece*>("Pawn3",new Pawn(m_color,6,2)));
-			m_listPieces.insert(std::pair<string,Piece*>("Pawn4",new Pawn(m_color,6,3)));
-			m_listPieces.insert(std::pair<string,Piece*>("Pawn5",new Pawn(m_color,6,4)));
-			m_listPieces.insert(std::pair<string,Piece*>("Pawn6",new Pawn(m_color,6,5)));
-			m_listPieces.insert(std::pair<string,Piece*>("Pawn7",new Pawn(m_color,6,6)));
-			m_listPieces.insert(std::pair<string,Piece*>("Pawn8",new Pawn(m_color,6,7)));
-			m_listPieces.insert(std::pair<string,Piece*>("Rook1",new Rook(m_color,7,0)));
-			m_listPieces.insert(std::pair<string,Piece*>("Rook2",new Rook(m_color,7,7)));
-			m_listPieces.insert(std::pair<string,Piece*>("Knight1",new Knight(m_color,7,1)));
-			m_listPieces.insert(std::pair<string,Piece*>("Knight2",new Knight(m_color,7,6)));
-			m_listPieces.insert(std::pair<string,Piece*>("Bishop1",new Bishop(m_color,7,2)));
-			m_listPieces.insert(std::pair<string,Piece*>("Bishop2",new Bishop(m_color,7,5)));
-			m_listPieces.insert(std::pair<string,Piece*>("King",new King(m_color,7,3)));
-			m_listPieces.insert(std::pair<string,Piece*>("Queen",new Queen(m_color,7,4)));
+			m_listPieces.insert(std::pair<string,Piece*>("Pawn1",new Pawn(m_color,"Pawn1",6,0)));
+			m_listPieces.insert(std::pair<string,Piece*>("Pawn2",new Pawn(m_color,"Pawn2",6,1)));
+			m_listPieces.insert(std::pair<string,Piece*>("Pawn3",new Pawn(m_color,"Pawn3",6,2)));
+			m_listPieces.insert(std::pair<string,Piece*>("Pawn4",new Pawn(m_color,"Pawn4",6,3)));
+			m_listPieces.insert(std::pair<string,Piece*>("Pawn5",new Pawn(m_color,"Pawn5",6,4)));
+			m_listPieces.insert(std::pair<string,Piece*>("Pawn6",new Pawn(m_color,"Pawn6",6,5)));
+			m_listPieces.insert(std::pair<string,Piece*>("Pawn7",new Pawn(m_color,"Pawn7",6,6)));
+			m_listPieces.insert(std::pair<string,Piece*>("Pawn8",new Pawn(m_color,"Pawn8",6,7)));
+			m_listPieces.insert(std::pair<string,Piece*>("Rook1",new Rook(m_color,"Rook1",7,0)));
+			m_listPieces.insert(std::pair<string,Piece*>("Rook2",new Rook(m_color,"Rook2",7,7)));
+			m_listPieces.insert(std::pair<string,Piece*>("Knight1",new Knight(m_color,"Knight1",7,1)));
+			m_listPieces.insert(std::pair<string,Piece*>("Knight2",new Knight(m_color,"Knight2",7,6)));
+			m_listPieces.insert(std::pair<string,Piece*>("Bishop1",new Bishop(m_color,"Bishop1",7,2)));
+			m_listPieces.insert(std::pair<string,Piece*>("Bishop2",new Bishop(m_color,"Bishop2",7,5)));
+			m_listPieces.insert(std::pair<string,Piece*>("King",new King(m_color,"King",7,3)));
+			m_listPieces.insert(std::pair<string,Piece*>("Queen",new Queen(m_color,"Queen",7,4)));
 
 	}
 }
@@ -100,6 +100,11 @@ void Player::initPieceList()
 void Player::updateCapturedList(Piece* p)
 {
 	m_capturedPieces.insert(std::pair<string,Piece*>(p->getName(),p));
+}
+
+void Player::updateListPiece(std::string name)
+{
+	m_listPieces.erase(name);
 }
 
 bool Player::canTake(Piece* p) const
@@ -118,3 +123,4 @@ bool Player::isMatt() const
 {
 	return false;
 }
+

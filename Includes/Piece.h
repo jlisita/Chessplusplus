@@ -14,7 +14,7 @@ class Piece
 
 public:
 
-	Piece(Color color = WHITE, int row = 0, int column = 0);
+	Piece(Color color = WHITE, std::string name = "", int row = 0, int column = 0);
 
 	virtual ~Piece();
 
@@ -28,19 +28,21 @@ public:
 
 	int getColumn() const;
 
+	std::string getName() const;
+
 	virtual void print(std::ostream &flux) const = 0;
 
 	virtual bool canMove(int i, int j, int k, int l, Board* Board) const = 0;
 
-	virtual std::string getName() const = 0;
 
 
 protected:
 
 	Color m_color;
-	bool m_firstMove;
+	std::string m_name;
 	int m_row;
 	int m_column;
+	bool m_firstMove;
 
 
 };

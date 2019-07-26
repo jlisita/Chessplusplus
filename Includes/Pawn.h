@@ -9,7 +9,7 @@ class Pawn : public Piece
 
 public:
 
-	Pawn(Color color = WHITE, int row = 0, int column = 0);
+	Pawn(Color color = WHITE, std::string name = "", int row = 0, int column = 0);
 
 	~Pawn();
 
@@ -17,7 +17,6 @@ public:
 
 	bool canMove(int i, int j, int k, int l, Board* board) const;
 
-	std::string getName() const;
 
 };
 

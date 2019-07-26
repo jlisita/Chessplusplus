@@ -21,10 +21,12 @@ public:
 	std::map<std::string,Piece*> getCapturedPieces() const;
 	void initPieceList();
 	void updateCapturedList(Piece* p);
+	void updateListPiece(std::string name);
 	bool canTake(Piece* p) const;
 	bool canEat(Piece* p) const;
 	bool isChess() const;
 	bool isMatt() const;
+	//void printListPiece() const;
 
 private:
 

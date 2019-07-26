@@ -4,7 +4,7 @@
 
 using namespace std;
 
-Queen::Queen(Color color, int row, int column) : Piece(color, row, column)
+Queen::Queen(Color color, string name, int row, int column) : Piece(color, name, row, column)
 {
 }
 
@@ -26,16 +26,21 @@ void Queen::print(std::ostream &flux) const
 
 bool Queen::canMove(int i, int j, int k, int l, Board* board) const
 {
-	if( (k-i==l-j) || (k-i==j-l) || (k-i==0) || (l-j==0) )
+	if(board->isEmptyBetween(i,j,k,l) == true)
 	{
-		return true;
+		if( (k-i==l-j) || (k-i==j-l) || (k-i==0) || (l-j==0) )
+		{
+			return true;
+		}
+		else
+		{
+			cout << "mouvement impossible pour cette pièce" << endl;
+			return false;
+		}
 	}
-	return false;
+	else
+	{
+		cout << "Il y a une piece entre ces 2 positions qui rend le déplacement impossible" << endl;
+		return false;
+	}
 }
-
-string Queen::getName() const
-{
-	return "Queen";
-}
-
-

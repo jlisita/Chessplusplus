@@ -4,7 +4,7 @@
 
 using namespace std;
 
-Bishop::Bishop(Color color, int row, int column) : Piece(color, row, column)
+Bishop::Bishop(Color color, string name, int row, int column) : Piece(color, name, row, column)
 {
 }
 
@@ -26,17 +26,21 @@ void Bishop::print(std::ostream &flux) const
 
 bool Bishop::canMove(int i, int j, int k, int l, Board* board) const
 {
-	if( (k-i==l-j) || (k-i==j-l) )
+	if(board->isEmptyBetween(i,j,k,l) == true)
 	{
-		return true;
+		if( (k-i==l-j) || (k-i==j-l) )
+		{
+			return true;
+		}
+		else
+		{
+			cout << "mouvement impossible pour cette pièce" << endl;
+			return false;
+		}
 	}
-	return false;
+	else
+	{
+		cout << "Il y a une piece entre ces 2 positions qui rend le déplacement impossible" << endl;
+		return false;
+	}
 }
-
-string Bishop::getName() const
-{
-	return "Bishop";
-}
-
-
-

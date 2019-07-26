@@ -6,7 +6,7 @@ using namespace std;
 
 
 
-Pawn::Pawn(Color color, int row, int column) : Piece(color, row, column)
+Pawn::Pawn(Color color, string name, int row, int column) : Piece(color,name, row, column)
 {
 }
 
@@ -28,30 +28,42 @@ void Pawn::print(std::ostream &flux) const
 
 bool Pawn::canMove(int i, int j, int k, int l, Board* board) const
 {
-	if(getColor() == WHITE)
+	if(board->isEmptyBetween(i,j,k,l) == true)
 	{
-		if( ( (m_firstMove==true) && (j==l) && (k-i==2) && board->isEmpty(k,l) )
-	    || ( (j==l) && (k-i == 1) && board->isEmpty(k,l) )
-	    || ( (k==i+1) && ((l==j+1) || (l==j-1)) && !board->isEmpty(k,l)) )
+		if(getColor() == WHITE)
 		{
-			return true;
+			if( ( (m_firstMove==true) && (j==l) && (k-i==2) && board->isEmpty(k,l) )
+		    || ( (j==l) && (k-i == 1) && board->isEmpty(k,l) )
+		    || ( (k==i+1) && ((l==j+1) || (l==j-1)) && !board->isEmpty(k,l)) )
+			{
+				return true;
+			}
+			else
+			{
+				cout << "mouvement impossible pour cette pièce" << endl;
+				return false;
+			}
+		}
+		else
+		{
+			if( ( (m_firstMove==true) && (j==l) && (k-i==-2) && board->isEmpty(k,l) )
+			|| ( (j==l) && (k-i==-1) && board->isEmpty(k,l) && board->isEmpty(k,l) )
+			|| ( (k==i-1) && ((l==j-1) || (l==j+1)) && !board->isEmpty(k,l)) )
+			{
+				return true;
+			}
+			else
+			{
+				cout << "mouvement impossible pour cette pièce" << endl;
+				return false;
+			}
 		}
 	}
 	else
 	{
-		if( ( (m_firstMove==true) && (j==l) && (k-i==-2) && board->isEmpty(k,l) )
-		|| ( (j==l) && (k-i==-1) && board->isEmpty(k,l) && board->isEmpty(k,l) )
-		|| ( (k==i-1) && ((l==j-1) || (l==j+1)) && !board->isEmpty(k,l)) )
-		{
-			return true;
-		}
+		cout << "Il y a une piece entre ces 2 positions qui rend le déplacement impossible" << endl;
+		return false;
 	}
-	return false;
-}
-
-string Pawn ::getName() const
-{
-	return "Queen";
 }
 
 

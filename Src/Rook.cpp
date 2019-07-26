@@ -4,7 +4,7 @@
 
 using namespace std;
 
-Rook::Rook(Color color, int row, int column) : Piece(color, row, column)
+Rook::Rook(Color color, string name, int row, int column) : Piece(color, name, row, column)
 {
 }
 
@@ -26,16 +26,23 @@ void Rook::print(std::ostream &flux) const
 
 bool Rook::canMove(int i, int j, int k, int l, Board* board) const
 {
-	if( (k-i==0) || (l-j==0) )
+	if(board->isEmptyBetween(i,j,k,l) == true)
 	{
-		return true;
+		if( (k-i==0) || (l-j==0) )
+		{
+			return true;
+		}
+		else
+		{
+			cout << "mouvement impossible pour cette pièce" << endl;
+			return false;
+		}
 	}
-	return false;
-}
-
-string Rook::getName() const
-{
-	return "Rook";
+	else
+	{
+			cout << "Il y a une piece entre ces 2 positions qui rend le déplacement impossible" << endl;
+		return false;
+	}
 }
 
 
