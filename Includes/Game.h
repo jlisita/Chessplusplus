@@ -18,11 +18,16 @@ public:
 
 	bool canMove(int i, int j, int k, int l) const;
 
+	void move(int i, int j,int k,int l);
+
+	Board* getBoard() const;
+
 private:
 
 	Player* m_player1;
 	Player* m_player2;
 	Player* m_currentPlayer;
+	Player* m_adversary;
 	Board* m_board;
 
 };

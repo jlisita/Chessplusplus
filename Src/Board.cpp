@@ -31,7 +31,7 @@ using namespace std;
 
 	void Board::addPiece(Piece* p, int i, int j)
 	{
-		if(m_board[i][j]==NULL && i<8 && j<8 )
+		if(i<8 && j<8)
 		{
 			m_board[i][j]=p;
 		}
@@ -156,11 +156,17 @@ using namespace std;
 		return (i>=0 && i<8 && j>=0 && j<8 && k>=0 && k<8 && l>=0 && l<8);
 	}
 
+	void Board::move(int i, int j,int k,int l)
+	{
+		m_board[k][l]=m_board[i][j];
+		m_board[i][j]=NULL;
+	}
+
 	void Board::print(Orientation o) const
 	{
 		char rankIndex[8] = {'1','2','3','4','5','6','7','8'};
 		char filesIndex[8] = {'a','b','c','d','e','f','g','h'};
-		if (o == BACK)
+		if (o == FRONT)
 		{
 			cout << "\n  |----|----|----|----|----|----|----|----|\n";
 			for(int i(7);i>=0;--i)

@@ -32,6 +32,8 @@ public:
 
 	bool isValidPosition(int i, int j, int k, int l) const;
 
+	void move(int i, int j,int k,int l);
+
 	void print(Orientation o) const;
 
 
