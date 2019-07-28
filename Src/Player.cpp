@@ -124,3 +124,20 @@ bool Player::isMatt() const
 	return false;
 }
 
+void Player::printListPiece() const
+{
+	for(map<string,Piece*>::const_iterator it = m_listPieces.begin(); it != m_listPieces.end();++it)
+	{
+		it->second->print(cout);
+	}
+	cout << endl;
+}
+void Player::printCapturedPiece() const
+{
+	for(map<string,Piece*>::const_iterator it = m_capturedPieces.begin(); it != m_capturedPieces.end();++it)
+	{
+		it->second->print(cout);
+	}
+	cout << endl;
+}
+

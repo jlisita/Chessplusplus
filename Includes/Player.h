@@ -26,7 +26,8 @@ public:
 	bool canEat(Piece* p) const;
 	bool isChess() const;
 	bool isMatt() const;
-	//void printListPiece() const;
+	void printListPiece() const;
+	void printCapturedPiece() const;
 
 private:
 

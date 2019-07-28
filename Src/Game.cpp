@@ -91,3 +91,8 @@ using namespace std;
 	 	return m_board;
 	 }
 
+	 Player* Game::getCurrentPlayer() const
+	 {
+	 	return m_currentPlayer;
+	 }
+

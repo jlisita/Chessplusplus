@@ -22,6 +22,8 @@ public:
 
 	Board* getBoard() const;
 
+	Player* getCurrentPlayer() const;
+
 private:
 
 	Player* m_player1;
