@@ -34,7 +34,7 @@ public:
 
 	virtual bool canMove(int i, int j, int k, int l, Board* Board) const = 0;
 
-
+	void setPosition(int i, int j);
 
 protected:
 

@@ -16,13 +16,17 @@ public:
 
 	void nextPlayer();
 
-	bool canMove(int i, int j, int k, int l) const;
+	bool canMove(Player* player,int i, int j, int k, int l) const;
+
+	bool canMoveWithoutChess(int i, int j, int k, int l) const;
 
 	void move(int i, int j,int k,int l);
 
 	Board* getBoard() const;
 
 	Player* getCurrentPlayer() const;
+
+	bool testChess() const;
 
 private:
 

@@ -43,10 +43,17 @@ string Piece::getName() const
 	return m_name;
 }
 
+void Piece::setPosition(int i, int j)
+{
+	m_row = i;
+	m_column = j;
+}
+
 ostream& operator<<( ostream &flux, Piece const& piece)
 {
 	piece.print(flux);
 	return flux;
 }
+
 
 

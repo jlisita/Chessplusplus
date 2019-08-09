@@ -159,6 +159,7 @@ using namespace std;
 	void Board::move(int i, int j,int k,int l)
 	{
 		m_board[k][l]=m_board[i][j];
+		m_board[k][l]->setPosition(k,l);
 		m_board[i][j]=NULL;
 	}
 

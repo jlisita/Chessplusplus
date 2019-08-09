@@ -38,15 +38,15 @@ using namespace std;
 		}
 	}
 
-	bool Game::canMove(int i, int j, int k, int l) const
+	bool Game::canMove(Player* player,int i, int j, int k, int l) const
 	{
 		if (m_board->isValidPosition(i,j,k,l))
 		{
 			if(!m_board->isEmpty(i,j))
 			{
-				if(m_currentPlayer->canTake(m_board->getPiece(i,j)))
+				if(player->canTake(m_board->getPiece(i,j)))
 				{
-					if(m_board->isEmpty(k,l)  || m_currentPlayer->canEat(m_board->getPiece(k,l)) )
+					if(m_board->isEmpty(k,l)  || player->canEat(m_board->getPiece(k,l)) )
 					{
 						return m_board->getPiece(i,j)->canMove(i,j,k,l,m_board);
 					}
@@ -75,6 +75,27 @@ using namespace std;
 		return false;
 	 }
 
+	 bool Game::canMoveWithoutChess(int i, int j, int k, int l) const
+	 {
+	 	if(canMove(m_currentPlayer,i,j,k,l)==true)
+	 	{
+	 		bool isChess(false);
+	 		Piece* p = m_board->getPiece(k,l);
+	 		m_board->move(i,j,k,l);
+	 		if(testChess()==false)
+	 		{
+	 			isChess = true;
+	 		}
+	 		m_board->move(k,l,i,j);
+	 		m_board->addPiece(p,k,l);
+	 		return isChess;
+	 	}
+	 	else
+	 	{
+	 		return false;
+	 	}
+	 }
+
 	 void Game::move(int i, int j,int k,int l)
 	 {
 	 	if(!m_board->isEmpty(k,l))
@@ -94,5 +115,29 @@ using namespace std;
 	 Player* Game::getCurrentPlayer() const
 	 {
 	 	return m_currentPlayer;
+	 }
+
+	 bool Game::testChess() const
+	 {
+	 	cout << "Game::testChess()" << endl;
+	 	cout << "m_listPieces = ";
+	 	m_adversary->printListPiece();
+	 	cout << endl;
+	 	cout << "position du roi: (" << m_currentPlayer->getListPieces().at("King")->getRow() << "," << m_currentPlayer->getListPieces().at("King")->getColumn() << ")"<< endl;
+
+	 	for(map<string,Piece*>::iterator it = m_adversary->getListPieces().begin(); it != m_adversary->getListPieces().end(); ++it)
+	 	{
+
+	 		it->second->print(cout);
+	 		cout << endl;
+	 		cout << "position = (" << it->second->getRow() << "," << it->second->getColumn() << ")" << endl;
+	 		if(canMove(m_adversary, it->second->getRow(),it->second->getColumn(), m_currentPlayer->getListPieces().at("King")->getRow(), m_currentPlayer->getListPieces().at("King")->getColumn()))
+	 		{
+	 			return true;
+	 		}
+
+	 	}
+
+	 	return false;
 	 }
 

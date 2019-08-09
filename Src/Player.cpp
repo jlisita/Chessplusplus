@@ -11,7 +11,7 @@
 
 using namespace std;
 
-Player::Player(string name, Color color) : m_name(name), m_color(color)
+Player::Player(string name, Color color) : m_name(name), m_color(color), m_isChess(false)
 {
 	initPieceList();
 	m_capturedPieces.clear();
@@ -45,11 +45,11 @@ void Player::setColor(Color color)
 {
 	m_color = color;
 }
-map<string,Piece*> Player::getListPieces() const
+map<string,Piece*>& Player::getListPieces()
 {
 	return m_listPieces;
 }
-map<string,Piece*> Player::getCapturedPieces() const
+map<string,Piece*>& Player::getCapturedPieces()
 {
 	return m_capturedPieces;
 }
@@ -72,8 +72,8 @@ void Player::initPieceList()
 			m_listPieces.insert(std::pair<string,Piece*>("Knight2",new Knight(m_color,"Knight2",0,6)));
 			m_listPieces.insert(std::pair<string,Piece*>("Bishop1",new Bishop(m_color,"Bishop1",0,2)));
 			m_listPieces.insert(std::pair<string,Piece*>("Bishop2",new Bishop(m_color,"Bishop2",0,5)));
-			m_listPieces.insert(std::pair<string,Piece*>("King",new King(m_color,"King",0,3)));
-			m_listPieces.insert(std::pair<string,Piece*>("Queen",new Queen(m_color,"Queen",0,4)));
+			m_listPieces.insert(std::pair<string,Piece*>("King",new King(m_color,"King",0,4)));
+			m_listPieces.insert(std::pair<string,Piece*>("Queen",new Queen(m_color,"Queen",0,3)));
 	}
 	else
 	{
@@ -91,8 +91,8 @@ void Player::initPieceList()
 			m_listPieces.insert(std::pair<string,Piece*>("Knight2",new Knight(m_color,"Knight2",7,6)));
 			m_listPieces.insert(std::pair<string,Piece*>("Bishop1",new Bishop(m_color,"Bishop1",7,2)));
 			m_listPieces.insert(std::pair<string,Piece*>("Bishop2",new Bishop(m_color,"Bishop2",7,5)));
-			m_listPieces.insert(std::pair<string,Piece*>("King",new King(m_color,"King",7,3)));
-			m_listPieces.insert(std::pair<string,Piece*>("Queen",new Queen(m_color,"Queen",7,4)));
+			m_listPieces.insert(std::pair<string,Piece*>("King",new King(m_color,"King",7,4)));
+			m_listPieces.insert(std::pair<string,Piece*>("Queen",new Queen(m_color,"Queen",7,3)));
 
 	}
 }
@@ -115,13 +115,9 @@ bool Player::canEat(Piece* p) const
 {
 	return m_color!=p->getColor();
 }
-bool Player::isChess() const
+bool Player::getIsChess() const
 {
-	return false;
-}
-bool Player::isMatt() const
-{
-	return false;
+	return m_isChess;
 }
 
 void Player::printListPiece() const
