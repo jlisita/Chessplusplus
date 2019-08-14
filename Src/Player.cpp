@@ -11,7 +11,7 @@
 
 using namespace std;
 
-Player::Player(string name, Color color) : m_name(name), m_color(color), m_isChess(false)
+Player::Player(string name, Color color) : m_name(name), m_color(color), m_isChess(false), m_isMatt(false)
 {
 	initPieceList();
 	m_capturedPieces.clear();
@@ -97,12 +97,22 @@ void Player::initPieceList()
 	}
 }
 
-void Player::updateCapturedList(Piece* p)
+void Player::addToCapturedList(Piece* p)
 {
 	m_capturedPieces.insert(std::pair<string,Piece*>(p->getName(),p));
 }
 
-void Player::updateListPiece(std::string name)
+void Player::removeToCapturedList(std::string name)
+{
+	m_capturedPieces.erase(name);
+}
+
+void Player::addToListPiece(Piece* p)
+{
+	m_listPieces.insert(std::pair<string,Piece*>(p->getName(),p));
+}
+
+void Player::removeToListPiece(std::string name)
 {
 	m_listPieces.erase(name);
 }
@@ -118,6 +128,10 @@ bool Player::canEat(Piece* p) const
 bool Player::getIsChess() const
 {
 	return m_isChess;
+}
+bool Player::getIsMatt() const
+{
+	return m_isMatt;
 }
 
 void Player::printListPiece() const

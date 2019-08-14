@@ -82,12 +82,22 @@ using namespace std;
 	 		bool isChess(false);
 	 		Piece* p = m_board->getPiece(k,l);
 	 		m_board->move(i,j,k,l);
+	 		if(p!=NULL)
+	 		{
+	 			m_currentPlayer->addToCapturedList(p);
+	 			m_adversary->removeToListPiece(p->getName());
+	 		}
 	 		if(testChess()==false)
 	 		{
 	 			isChess = true;
 	 		}
 	 		m_board->move(k,l,i,j);
 	 		m_board->addPiece(p,k,l);
+	 		if(p!=NULL)
+	 		{
+	 			m_currentPlayer->removeToCapturedList(p->getName());
+	 			m_adversary->addToListPiece(p);
+	 		}
 	 		return isChess;
 	 	}
 	 	else
@@ -100,8 +110,8 @@ using namespace std;
 	 {
 	 	if(!m_board->isEmpty(k,l))
 	 	{
-	 		m_currentPlayer->updateCapturedList(m_board->getPiece(k,l));
-	 		m_adversary->updateListPiece(m_board->getPiece(k,l)->getName());
+	 		m_currentPlayer->addToCapturedList(m_board->getPiece(k,l));
+	 		m_adversary->removeToListPiece(m_board->getPiece(k,l)->getName());
 	 	}
 	 	m_board->move(i,j,k,l);
 	 	m_board->getPiece(k,l)->setFirstMove();
@@ -119,25 +129,31 @@ using namespace std;
 
 	 bool Game::testChess() const
 	 {
-	 	cout << "Game::testChess()" << endl;
-	 	cout << "m_listPieces = ";
-	 	m_adversary->printListPiece();
-	 	cout << endl;
-	 	cout << "position du roi: (" << m_currentPlayer->getListPieces().at("King")->getRow() << "," << m_currentPlayer->getListPieces().at("King")->getColumn() << ")"<< endl;
-
 	 	for(map<string,Piece*>::iterator it = m_adversary->getListPieces().begin(); it != m_adversary->getListPieces().end(); ++it)
 	 	{
-
-	 		it->second->print(cout);
-	 		cout << endl;
-	 		cout << "position = (" << it->second->getRow() << "," << it->second->getColumn() << ")" << endl;
 	 		if(canMove(m_adversary, it->second->getRow(),it->second->getColumn(), m_currentPlayer->getListPieces().at("King")->getRow(), m_currentPlayer->getListPieces().at("King")->getColumn()))
 	 		{
 	 			return true;
 	 		}
-
 	 	}
-
 	 	return false;
 	 }
+
+	bool Game::testMatt() const
+	{
+		for(map<string,Piece*>::iterator it = m_currentPlayer->getListPieces().begin(); it != m_currentPlayer->getListPieces().end(); ++it)
+		{
+			for(int i=0; i<8; ++i)
+			{
+				for(int j=0; j<8; ++j)
+				{
+					if(canMoveWithoutChess(it->second->getRow(),it->second->getColumn(),i,j))
+					{
+						return false;
+					}
+				}
+			}
+		}
+		return true;
+	}
 

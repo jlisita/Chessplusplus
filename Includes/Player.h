@@ -20,11 +20,14 @@ public:
 	std::map<std::string,Piece*>& getListPieces();
 	std::map<std::string,Piece*>& getCapturedPieces();
 	void initPieceList();
-	void updateCapturedList(Piece* p);
-	void updateListPiece(std::string name);
+	void addToCapturedList(Piece* p);
+	void removeToCapturedList(std::string name);
+	void addToListPiece(Piece* p);
+	void removeToListPiece(std::string name);
 	bool canTake(Piece* p) const;
 	bool canEat(Piece* p) const;
 	bool getIsChess() const;
+	bool getIsMatt() const;
 	void printListPiece() const;
 	void printCapturedPiece() const;
 
@@ -33,6 +36,7 @@ private:
 	std::string m_name;
 	Color m_color;
 	bool m_isChess;
+	bool m_isMatt;
 	std::map <std::string,Piece*> m_listPieces;
 	std::map <std::string,Piece*> m_capturedPieces;
 };

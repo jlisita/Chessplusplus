@@ -28,6 +28,8 @@ public:
 
 	bool testChess() const;
 
+	bool testMatt() const;
+
 private:
 
 	Player* m_player1;
